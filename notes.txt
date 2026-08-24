@@ -1,0 +1,137 @@
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+
+--Folder creation 
+$folders = @(
+    "data\raw", "data\processed", "data\reports",
+    "src\ingestion", "src\fundamentals", "src\technicals",
+    "src\scoring", "src\rag", "src\agents", "src\api", "src\ui",
+    "notebooks", "tests", "docs"
+)
+$folders | ForEach-Object { New-Item -ItemType Directory -Path $_ -Force | Out-Null }
+New-Item -ItemType File -Path "requirements.txt" -Force | Out-Null
+New-Item -ItemType File -Path "README.md" -Force | Out-Null
+
+Github co-pilot: update in parallel all the dependencies in requirements.txt 
+
+---Git hub co-pilot command
+1. src/ingestion/: Create a Python module that downloads daily OHLCV data for NSE stocks using yfinance and stores it as Parquet files.
+
+2. src/fundamentals/:  Create a module that reads company financial statements from CSV files into DuckDB and computes ROE, ROCE, EPS Growth, Revenue CAGR, Debt/Equity and Free Cash Flow.
+
+3. src/scoring/: Create an InvestmentScore class that scores companies based on weighted metrics.
+
+4. src/ui/: Create a Streamlit dashboard showing stock ranking and filters.
+
+--Modifying the folder structure: 
+@("configs","database","models","prompts","scripts","logs","reports",".github") | ForEach-Object { New-Item -ItemType Directory -Path $_ -Force | Out-Null }
+@("pyproject.toml",".gitignore",".env","docker-compose.yml") | ForEach-Object { New-Item -ItemType File -Path $_ -Force | Out-Null }
+
+$folders = @(
+    "configs",
+
+    "data\raw",
+    "data\processed",
+    "data\features",
+    "data\cache",
+    "data\exports",
+    "data\archive",
+
+    "database\duckdb",
+    "database\migrations",
+    "database\seed",
+    "database\backup",
+
+    "docs\architecture",
+    "docs\api",
+    "docs\adr",
+    "docs\diagrams",
+    "docs\images",
+
+    "knowledge",
+
+    "logs\pipeline",
+    "logs\api",
+    "logs\llm",
+    "logs\errors",
+
+    "models\embeddings",
+    "models\trained",
+    "models\feature_store",
+
+    "prompts",
+
+    "reports\daily",
+    "reports\weekly",
+    "reports\monthly",
+    "reports\company",
+    "reports\portfolio",
+
+    "scripts",
+
+    "src\core",
+
+    "src\data\collectors",
+    "src\data\loaders",
+    "src\data\cleaners",
+    "src\data\validators",
+    "src\data\transformers",
+    "src\data\exporters",
+
+    "src\database",
+
+    "src\market",
+
+    "src\financials",
+
+    "src\technicals",
+
+    "src\valuation",
+
+    "src\screener",
+
+    "src\scoring",
+
+    "src\portfolio",
+
+    "src\research",
+
+    "src\ai\rag",
+    "src\ai\embeddings",
+    "src\ai\llm",
+    "src\ai\memory",
+    "src\ai\tools",
+    "src\ai\chains",
+    "src\ai\evaluators",
+
+    "src\agents",
+
+    "src\api\routers",
+    "src\api\schemas",
+    "src\api\services",
+    "src\api\dependencies",
+
+    "src\dashboard\pages",
+    "src\dashboard\components",
+    "src\dashboard\charts",
+    "src\dashboard\tables",
+
+    "tests\core",
+    "tests\data",
+    "tests\database",
+    "tests\financials",
+    "tests\technicals",
+    "tests\valuation",
+    "tests\portfolio",
+    "tests\research",
+    "tests\scoring",
+    "tests\agents",
+    "tests\api"
+)
+
+foreach ($folder in $folders) {
+    New-Item -ItemType Directory -Force -Path $folder | Out-Null
+}
+
+Write-Host "Folder structure created successfully." -ForegroundColor Green
+

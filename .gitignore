@@ -1,0 +1,65 @@
+# ── Python ───────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# ── Virtual environments ──────────────────────────────────────────────────────
+.venv/
+venv/
+env/
+
+# ── Environment & secrets ─────────────────────────────────────────────────────
+.env
+*.env
+!.env.example
+
+# ── Testing & coverage ────────────────────────────────────────────────────────
+.pytest_cache/
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+
+# ── Type checking ─────────────────────────────────────────────────────────────
+.mypy_cache/
+.ruff_cache/
+
+# ── IDE ───────────────────────────────────────────────────────────────────────
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+
+# ── Data files ────────────────────────────────────────────────────────────────
+data/raw/
+data/processed/
+data/chroma/
+logs/
+*.parquet
+*.sqlite
+*.db
+
+# ── Notebooks ─────────────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+
+# ── OS ────────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Docker ────────────────────────────────────────────────────────────────────
+*.override.yml
+
+# ── Reports ───────────────────────────────────────────────────────────────────
+reports/*.html
+reports/*.pdf
+# —— Frontend dependencies/build ———————————————————————————————————————————————
+node_modules/
+frontend/node_modules/
+frontend/dist/

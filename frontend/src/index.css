@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+
+  html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #080c14;
+    color: #e2e8f0;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
+
+  ::selection { background: rgba(30,144,255,0.3); }
+}
+
+@layer components {
+  .glass {
+    background: rgba(255,255,255,0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.07);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06);
+  }
+
+  .glass-heavy {
+    background: rgba(13,18,32,0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.08);
+  }
+
+  .btn-primary {
+    @apply px-4 py-2 bg-accent text-white rounded-lg font-medium text-sm
+           hover:bg-blue-500 active:scale-95 transition-all duration-150
+           shadow-accent;
+  }
+
+  .btn-ghost {
+    @apply px-3 py-1.5 text-text-secondary hover:text-text-primary hover:bg-surface-hover
+           rounded-md text-sm transition-all duration-150 cursor-pointer;
+  }
+
+  .tag-bull { @apply text-xs px-2 py-0.5 rounded-full bg-bull-dim text-bull font-medium; }
+  .tag-bear { @apply text-xs px-2 py-0.5 rounded-full bg-bear-dim text-bear font-medium; }
+  .tag-accent { @apply text-xs px-2 py-0.5 rounded-full bg-accent-dim text-accent font-medium; }
+  .tag-gold { @apply text-xs px-2 py-0.5 rounded-full bg-gold-dim text-gold font-medium; }
+
+  .stat-card {
+    @apply glass rounded-xl p-4 flex flex-col gap-1;
+  }
+
+  .panel-header {
+    @apply text-xs font-semibold uppercase tracking-widest text-text-muted px-4 py-2;
+  }
+}
